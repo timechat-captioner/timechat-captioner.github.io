@@ -1,7 +1,84 @@
 body {
   font-family: 'Noto Sans', sans-serif;
+  line-height: 1.75;
 }
 
+/* ===== 全局排版 ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 段落与正文统一字号 */
+.content p,
+.content li {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* 标题层级字号 */
+.title.is-1 { font-size: 2.5rem; line-height: 1.25; }
+.title.is-3 { font-size: 1.75rem; margin-bottom: 1.5rem; }
+.title.is-5 { font-size: 1.15rem; margin-bottom: 1rem; }
+
+/* 标题居中对齐时增加下边距 */
+.title.is-3.has-text-centered {
+  margin-bottom: 2rem;
+}
+
+/* 作者区域行高统一 */
+.publication-authors {
+  font-family: 'Google Sans', sans-serif;
+  line-height: 2;
+}
+
+/* 作者名单排列样式 */
+.publication-authors .author-block {
+  display: inline-block;
+  margin-right: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+/* 机构信息样式 */
+.affiliation-block {
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* ===== 各节之间间距统一 ===== */
+.section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* 图片说明文字 */
+.caption-text,
+img + p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* 列表项间距 */
+.content ol li,
+.content ul li {
+  margin-bottom: 0.75rem;
+}
+
+/* box 内列表对齐 */
+.box ul {
+  margin-left: 1.5rem;
+}
+
+.box ul li {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+/* ===== 原有样式保留 ===== */
 
 .footer .icon-link {
     font-size: 25px;
@@ -29,29 +106,6 @@ body {
 
 
 .publication-title {
-}
-
-.publication-banner {
-  max-height: parent;
-
-}
-
-.publication-banner video {
-  position: relative;
-  left: auto;
-  top: auto;
-  transform: none;
-  object-fit: fit;
-}
-
-.publication-header .hero-body {
-}
-
-.publication-title {
-    font-family: 'Google Sans', sans-serif;
-}
-
-.publication-authors {
     font-family: 'Google Sans', sans-serif;
 }
 
@@ -67,9 +121,6 @@ body {
     font-weight: bolder;
 }
 
-.publication-authors {
-}
-
 .publication-authors a {
    color: hsl(204, 86%, 53%) !important;
 }
@@ -82,11 +133,16 @@ body {
   display: inline-block;
 }
 
-.publication-banner img {
+.publication-banner {
+  max-height: parent;
 }
 
-.publication-authors {
-  /*color: #4286f4;*/
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
 }
 
 .publication-video {
@@ -94,7 +150,6 @@ body {
     width: 100%;
     height: 0;
     padding-bottom: 56.25%;
-
     overflow: hidden;
     border-radius: 10px !important;
 }
@@ -105,9 +160,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-}
-
-.publication-body img {
 }
 
 .results-carousel {
@@ -131,4 +183,12 @@ body {
 
 .eql-cntrb { 
   font-size: smaller;
+}
+
+/* ===== 响应式适配 ===== */
+@media screen and (max-width: 768px) {
+  .title.is-1 { font-size: 1.75rem; }
+  .title.is-3 { font-size: 1.4rem; }
+  .content p, .content li { font-size: 0.95rem; }
+  .box ul li { font-size: 0.95rem; }
 }
