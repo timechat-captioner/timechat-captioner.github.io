@@ -184,9 +184,15 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Interactive Demo</h2>
     
+    <!-- Case Selection Buttons -->
+    <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+      <button id="caseBtn1" class="button is-medium" style="background: hsl(204, 86%, 53%); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; padding: 0.75rem 2rem;" onclick="switchCase('cn')">Case 1</button>
+      <button id="caseBtn2" class="button is-medium" style="background: #e5e7eb; color: #374151; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; padding: 0.75rem 2rem;" onclick="switchCase('en')">Case 2</button>
+    </div>
+    
     <div style="margin-bottom: 2rem;">
       <video controls id="demoVideo" style="width: 100%; max-width: 900px; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12); border: 1px solid #e5e7eb; aspect-ratio: auto; object-fit: contain;">
-        <source src="static/videos/case_cn.mp4" type="video/mp4">
+        <source id="videoSource" src="static/videos/case_cn.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
@@ -250,7 +256,7 @@
     </div>
 
     <!-- Detailed Information Panel with Grid Layout -->
-    <div id="detailPanel" style="background: white; border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 16px rgba(0,0,0,0.08); margin-bottom: 2rem; display: none;">
+    <div id="detailPanel" style="background: #f0f7ff; border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 16px rgba(0,0,0,0.08); margin-bottom: 2rem; display: none; border-left: 5px solid hsl(204, 86%, 53%);">
       <h4 id="detailTitle" class="title is-4" style="margin-bottom: 2rem; color: #111827;">Time Segment Details</h4>
       
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
@@ -364,41 +370,154 @@
     }
   ];
 
-  // Add click handlers to segment blocks
-  document.querySelectorAll('.demo-segment').forEach((segment, index) => {
-    segment.addEventListener('click', function() {
-      const data = demoData[index];
-      
-      // Update detail panel
-      document.getElementById('detailTitle').textContent = 'Time Segment: ' + data.timestamp;
-      document.getElementById('dim-segment_detail_caption').textContent = data.segment_detail_caption;
-      document.getElementById('dim-video_background').textContent = data.video_background;
-      document.getElementById('dim-camera_state').textContent = data.camera_state;
-      document.getElementById('dim-shooting_style').textContent = data.shooting_style;
-      document.getElementById('dim-speech_content').textContent = data.speech_content;
-      document.getElementById('dim-acoustics_content').textContent = data.acoustics_content;
-      
-      // Show detail panel
-      document.getElementById('detailPanel').style.display = 'block';
-      
-      // Update video time
-      const times = data.timestamp.split('-');
-      const startTime = timeToSeconds(times[0]);
-      const video = document.getElementById('demoVideo');
-      if (video) {
-        video.currentTime = startTime;
-      }
-      
-      // Highlight selected segment
-      document.querySelectorAll('.demo-segment').forEach(s => s.classList.remove('active'));
-      this.classList.add('active');
-    });
-  });
-  
+  // Case 2 Data (Pure Music)
+  const demoDataEN = [
+    {
+      timestamp: "00:00-00:06",
+      segment_detail_caption: "The scene opens in a dark, empty hallway with a wooden floor. A flashlight beam bounces around, illuminating the floor and the walls. The hallway is dimly lit by overhead fluorescent lights, casting long shadows. On the left, there's a window showing a dark blue, twilight sky, and a trash can with a few items in it. The camera moves forward, creating a sense of suspense and exploration.",
+      camera_state: "The camera is at a low angle, moving forward in a first-person perspective, simulating the user's point of view. The flashlight beam bounces around, creating a dynamic sense of movement.",
+      video_background: "The setting is a dark, empty school hallway at night. The walls are lined with windows and framed pictures. A trash can and a small bench are visible on the left side.",
+      shooting_style: "This is a point-of-view (POV) shot, immersing the viewer in the character's perspective as they explore the hallway.",
+      speech_content: "",
+      acoustics_content: "1) Tone of speech: N/A. 2) Background sounds or music: The distinct sound of footsteps on a wooden floor, accompanied by a low, ominous, and suspenseful instrumental music score."
+    },
+    {
+      timestamp: "00:07-00:11",
+      segment_detail_caption: "The camera moves through a doorway, revealing a dark, empty classroom. The room is decorated for Halloween with orange and black streamers hanging from the ceiling. A disco ball hangs in the center, and a clock is visible on the back wall. The room is furnished with empty desks and chairs, and a bulletin board is on the left wall.",
+      camera_state: "The camera continues its forward movement, passing through a doorway to reveal the new room. It then pans slowly to the left, surveying the empty classroom.",
+      video_background: "The scene is a dark, empty classroom. Halloween decorations include streamers, a disco ball, and a clock on the wall. Desks and chairs are scattered around the room.",
+      shooting_style: "The scene transitions from a POV shot to a wider, panning shot to reveal the new setting.",
+      speech_content: "",
+      acoustics_content: "1) Tone of speech: N/A. 2) Background sounds or music: A creaking sound is heard as the door opens, followed by a low, ambient, and slightly spooky instrumental music tone."
+    },
+    {
+      timestamp: "00:12-00:22",
+      segment_detail_caption: "The camera pans slowly across the dark, empty classroom. The room is dimly lit, with the only light source being a faint glow from the windows. The Halloween decorations, including streamers and a disco ball, are faintly visible. The camera's movement is slow and deliberate, creating a sense of eerie stillness.",
+      camera_state: "The camera performs a slow, sweeping pan from right to left across the empty classroom, maintaining a wide shot to emphasize the emptiness of the space.",
+      video_background: "The setting is the same dark classroom, with Halloween decorations like streamers and a disco ball. The room contains empty desks and chairs.",
+      shooting_style: "A slow panning shot is used to survey the environment and build atmosphere.",
+      speech_content: "",
+      acoustics_content: "1) Tone of speech: N/A. 2) Background sounds or music: Subtle ambient instrumental music plays in the background, creating a low, ominous atmosphere."
+    },
+    {
+      timestamp: "00:23-00:27",
+      segment_detail_caption: "The camera tilts up to focus on a small, plush toy vampire with spiky black hair, a grey face, and a red-lined mouth. The toy is sitting on a high shelf, illuminated by a single light source. It opens its mouth wide, revealing sharp vampire fangs, and lets out a spooky, raspy sound.",
+      camera_state: "The camera tilts up to a close-up shot of the toy vampire on the shelf, focusing on its face and fangs.",
+      video_background: "The background is a dark, out-of-focus wall with a single light source casting a shadow behind the toy.",
+      shooting_style: "A close-up shot is used to highlight a specific character and its action.",
+      speech_content: "",
+      acoustics_content: "1) Tone of speech: N/A. 2) Background sounds or music: A musical sting plays when the cut cable is revealed, with a low, ominous instrumental tone."
+    },
+    {
+      timestamp: "00:28-00:33",
+      segment_detail_caption: "The scene abruptly cuts to a brightly lit, festive room. The toy vampire, now a character, stands with a stern expression. He is surrounded by other animated monsters: a large blue one in a party hat, a small purple one in a top hat, a green one, and an orange one with a birthday cake on its head. The vampire crosses his arms, looking unimpressed.",
+      camera_state: "The camera is at a medium distance, capturing the group of monsters from the waist up. It remains static.",
+      video_background: "The room is now a colorful, festive space with warm lights, a bulletin board, and Halloween decorations, indicating a party or celebration.",
+      shooting_style: "A hard cut is used to transition from the dark, empty hallway to the brightly lit party scene, creating a stark contrast.",
+      speech_content: "",
+      acoustics_content: "1) Tone of speech: N/A. 2) Background sounds or music: Upbeat instrumental music with celebratory tones, creating a festive and joyful atmosphere."
+    }
+  ];
+
+  // Current case tracker
+  let currentCase = 'cn';
+
+  // Helper function to convert time string to seconds
   function timeToSeconds(timeStr) {
     const parts = timeStr.split(':');
     return parseInt(parts[0]) * 60 + parseInt(parts[1]);
   }
+
+  // Switch case function
+  function switchCase(caseType) {
+    currentCase = caseType;
+    const videoSource = document.getElementById('videoSource');
+    const caseBtn1 = document.getElementById('caseBtn1');
+    const caseBtn2 = document.getElementById('caseBtn2');
+    
+    // Define timestamps for each case
+    const caseTimestamps = {
+      cn: ["00:00-00:10", "00:11-00:20", "00:21-00:28", "00:29-00:36", "00:37-00:49", "00:50-00:59"],
+      en: ["00:00-00:06", "00:07-00:11", "00:12-00:22", "00:23-00:27", "00:28-00:33"]
+    };
+    
+    // Update button styles
+    if (caseType === 'cn') {
+      videoSource.src = 'static/videos/case_cn.mp4';
+      caseBtn1.style.background = 'hsl(204, 86%, 53%)';
+      caseBtn1.style.color = 'white';
+      caseBtn2.style.background = '#e5e7eb';
+      caseBtn2.style.color = '#374151';
+    } else {
+      videoSource.src = 'static/videos/case_en.mp4';
+      caseBtn1.style.background = '#e5e7eb';
+      caseBtn1.style.color = '#374151';
+      caseBtn2.style.background = 'hsl(204, 86%, 53%)';
+      caseBtn2.style.color = 'white';
+    }
+    
+    // Update segment timestamps and rebind click handlers
+    const timestamps = caseTimestamps[caseType];
+    const segments = document.querySelectorAll('.demo-segment');
+    segments.forEach((segment, index) => {
+      if (index < timestamps.length) {
+        segment.style.display = 'flex';
+        const timeLabel = segment.querySelector('h5');
+        timeLabel.textContent = timestamps[index];
+        
+        // Remove old event listener and bind new one
+        const newSegment = segment.cloneNode(true);
+        segment.parentNode.replaceChild(newSegment, segment);
+        
+        newSegment.addEventListener('click', function() {
+          const dataArray = caseType === 'cn' ? demoData : demoDataEN;
+          const data = dataArray[index];
+          
+          if (data) {
+            // Update detail panel
+            document.getElementById('detailTitle').textContent = 'Time Segment: ' + data.timestamp;
+            document.getElementById('dim-segment_detail_caption').textContent = data.segment_detail_caption;
+            document.getElementById('dim-video_background').textContent = data.video_background;
+            document.getElementById('dim-camera_state').textContent = data.camera_state;
+            document.getElementById('dim-shooting_style').textContent = data.shooting_style;
+            document.getElementById('dim-speech_content').textContent = data.speech_content;
+            document.getElementById('dim-acoustics_content').textContent = data.acoustics_content;
+            
+            // Show detail panel
+            document.getElementById('detailPanel').style.display = 'block';
+            
+            // Update video time
+            const times = data.timestamp.split('-');
+            const startTime = timeToSeconds(times[0]);
+            const video = document.getElementById('demoVideo');
+            if (video) {
+              video.currentTime = startTime;
+            }
+            
+            // Highlight selected segment
+            document.querySelectorAll('.demo-segment').forEach(s => s.classList.remove('active'));
+            this.classList.add('active');
+          }
+        });
+      } else {
+        segment.style.display = 'none';
+      }
+    });
+    
+    // Reload video
+    const video = document.getElementById('demoVideo');
+    video.load();
+    
+    // Clear detail panel and segment highlights when switching cases
+    document.getElementById('detailPanel').style.display = 'none';
+    document.querySelectorAll('.demo-segment').forEach(s => s.classList.remove('active'));
+    
+    // Reset video time to beginning
+    video.currentTime = 0;
+  }
+
+  // Initialize with Case 1 as default
+  switchCase('cn');
 </script>
 
 <section class="hero teaser">
