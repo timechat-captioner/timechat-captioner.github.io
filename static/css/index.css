@@ -891,6 +891,11 @@ img + p {
   margin-right: 0.4rem;
 }
 
+/* Title accent: "TimeChat-Captioner:" matches ICML 2026 amber */
+.title-accent {
+  color: var(--amber);
+}
+
 .venue-text {
   font-style: italic;
   font-size: 1rem;
@@ -929,12 +934,12 @@ img + p {
 .supporting-heading {
   font-size: 1.05rem !important;
   font-weight: 600 !important;
-  color: var(--text-muted) !important;
+  color: var(--ink) !important;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-bottom: 1rem !important;
+  margin-bottom: 0 !important;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--amber);
 }
 
 /* ----- Composite Reward cards (highlighted block) ----- */
@@ -949,9 +954,13 @@ img + p {
   position: relative;
   background: var(--white);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--amber);
+  border-top: 3px solid var(--amber);
   border-radius: var(--r-md);
-  padding: 1.1rem 1.15rem 1.1rem 1.2rem;
+  padding: 1.2rem 1.15rem 1.1rem 1.15rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
 }
 
@@ -997,25 +1006,45 @@ img + p {
   margin: 0 !important;
 }
 
-/* Make supporting feature-list visually quieter than the highlighted reward block */
-.feature-list-compact {
-  border-left: 2px solid var(--border);
-  padding-left: 1.2rem;
+/* Supporting feature-list sits right below the amber heading border */
+.feature-list.feature-list-compact {
+  margin-top: 1.2rem !important;
+  padding-left: 0 !important;
+  list-style: none !important;
 }
 
-.feature-list-compact li {
-  margin-bottom: 0.85rem;
+.feature-list.feature-list-compact li {
+  position: relative;
+  margin-bottom: 1rem !important;
+  padding: 0 0 0 1.4rem !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
-.feature-list-compact li:last-child {
-  margin-bottom: 0;
+.feature-list.feature-list-compact li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  background: var(--amber);
+  border-radius: 50%;
 }
 
-.feature-list-compact > li > strong {
-  color: var(--ink-light);
+.feature-list.feature-list-compact li:last-child {
+  margin-bottom: 0 !important;
 }
 
-.feature-list-compact > li > p {
-  color: var(--text-muted) !important;
+.feature-list.feature-list-compact > li > strong {
+  color: var(--ink);
+}
+
+.feature-list.feature-list-compact > li > p {
+  color: var(--text-body) !important;
   font-size: 0.95rem !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0 !important;
 }
