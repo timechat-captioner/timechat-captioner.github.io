@@ -979,9 +979,14 @@ img + p {
   background: var(--amber-light);
   padding: 0.18rem 0.55rem;
   border-radius: 4px;
-  margin-bottom: 0.55rem;
+  margin-top: 0.85rem;   /* sit at the bottom of the card */
+  margin-bottom: 0;
   letter-spacing: 0.02em;
+  order: 3;              /* push to bottom of the flex column */
 }
+
+.reward-card-title { order: 1; }
+.reward-card p     { order: 2; }
 
 .reward-card-tag sub {
   font-size: 0.75em;
