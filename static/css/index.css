@@ -179,8 +179,24 @@ a:hover {
   position: relative;
   z-index: 2;
   width: 100%;
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
+  /* Center the inner container vertically inside the stretched hero-body */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Symmetric padding so the content sits in the geometric center.
+     Scroll-down hint is position:absolute and does not affect this. */
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.hero.hero-gradient .hero-body > .container {
+  width: 100%;
+  margin: 0 auto;
+  /* Prevent the container from stretching to the flex parent's height,
+     so its natural content height defines the layout and justify-content
+     can truly center it. */
+  flex: 0 0 auto;
 }
 
 /* Scroll-down hint anchored to the bottom of the hero */
