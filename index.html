@@ -2,38 +2,30 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
   <meta name="description" content="TimeChat-Captioner: Scripting Multi-Scene Videos with Time-Aware and Structural Audio-Visual Captions">
   <meta property="og:title" content="TimeChat-Captioner: Scripting Multi-Scene Videos with Time-Aware and Structural Audio-Visual Captions"/>
   <meta property="og:description" content="TimeChat-Captioner: Scripting Multi-Scene Videos with Time-Aware and Structural Audio-Visual Captions"/>
   <meta property="og:url" content="https://timechat-captioner.github.io/"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="/static/image/caption_teaser.png" />
+  <meta property="og:image" content="static/images/caption_teaser.png" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-
-
   <meta name="twitter:title" content="TimeChat-Captioner: Scripting Multi-Scene Videos with Time-Aware and Structural Audio-Visual Captions">
   <meta name="twitter:description" content="TimeChat-Captioner: Scripting Multi-Scene Videos with Time-Aware and Structural Audio-Visual Captions">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/image/teaser.png">
+  <meta name="twitter:image" content="static/images/caption_teaser.png">
   <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
   <meta name="keywords" content="Dense Video Captioning, Audio-Visual Understanding, Multimodal Learning, Video Description, Scene Segmentation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
   <title>TimeChat-Captioner: Scripting Multi-Scene Videos with Time-Aware and Structural Audio-Visual Captions</title>
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -45,273 +37,220 @@
 </head>
 <body>
 
+<!-- ==================== HERO SECTION ==================== -->
+<section class="hero hero-gradient">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">TimeChat-Captioner:<br>Scripting Multi-Scene Videos with Time-Aware<br>and Structural Audio-Visual Captions</h1>
+          <div class="is-size-5 publication-authors" style="margin-top: 1.5rem;">
+            <span class="author-block">
+              <a href="https://yaolinli.github.io/" target="_blank">Linli Yao</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://github.com/wyclike/" target="_blank">Yuancheng Wei</a><sup>3</sup>,</span>
+            <span class="author-block">
+              Yaojie Zhang<sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://lilei-nlp.github.io/" target="_blank">Lei Li</a><sup>5</sup>,
+            </span>
+            <span class="author-block">
+              Xinlong Chen<sup>6,2</sup>,
+            </span><br>
+            <span class="author-block">
+              Feifan Song<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Ziyue Wang<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ouyangkun10.github.io/" target="_blank">Kun Ouyang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://llyx97.github.io/" target="_blank">Yuanxin Liu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ikekonglp.github.io/" target="_blank">Lingpeng Kong</a><sup>5</sup>,
+            </span><br>
+            <span class="author-block">
+              <a href="https://leuchine.github.io/" target="_blank">Qi Liu</a><sup>5</sup>,
+            </span>
+            <span class="author-block">
+              Pengfei Wan<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Kun Gai<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=COdftTMAAAAJ&hl=en&oi=ao" target="_blank">Yuanxing Zhang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://xusun26.github.io/" target="_blank">Xu Sun</a><sup>1,&dagger;</sup>
+            </span>
+          </div>
 
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <div class="conference-badge-wrapper">
-              <span class="conference-badge">
-                <svg class="badge-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"></circle><polyline points="8.21,13.89 7,23 12,20 17,23 15.79,13.88"></polyline></svg>
-                ICML 2026
+          <div class="is-size-5 publication-authors" style="margin-top: 0.75rem;">
+            <span class="affiliation-block"><sup>1</sup>Peking University, <sup>2</sup>Kling Team, Kuaishou Technology, <sup>3</sup>South China University of Technology,<br> <sup>4</sup>University of Electronic Science and Technology of China, <sup>5</sup>The University of Hong Kong, <sup>6</sup>Institute of Automation, Chinese Academy of Sciences</span>
+          </div>
+
+          <div class="is-size-6 publication-authors" style="margin-top: 0.5rem; color: var(--text-muted);">
+            <sup>&dagger;</sup>Corresponding Author
+          </div>
+
+          <div class="column has-text-centered" style="margin-top: 1.5rem;">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2602.08711" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/yaolinli/TimeChat-Captioner" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code &amp; Data</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/yaolily/OmniDCBench" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-save"></i></span>
+                  <span>Benchmark</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/yaolily/Timechat-OmniCaptioner-42K" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-database"></i></span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/yaolily/TimeChat-Captioner-GRPO-7B" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-save"></i></span>
+                  <span>Model</span>
+                </a>
               </span>
             </div>
-            <h1 class="title is-1 publication-title">TimeChat-Captioner: Scripting Multi-Scene Videos<br>with Time-Aware and Structural<br>Audio-Visual Captions</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="https://yaolinli.github.io/" target="_blank">Linli Yao</a><sup>1,2</sup>,</span>
-                <span class="author-block">
-                  <a href="https://github.com/wyclike/" target="_blank">Yuancheng Wei</a><sup>3</sup>,</span>
-                  <span class="author-block">
-                    Yaojie Zhang<sup>4</sup>,
-                  </span>
-                  <span class="author-block">
-                    <a href="https://lilei-nlp.github.io/" target="_blank">Lei Li</a><sup>5</sup>,
-                  </span>
-                  <span class="author-block">
-                    Xinlong Chen<sup>6,2</sup>,
-                  </span>
-                  <span class="author-block">
-                    Feifan Song<sup>1</sup>,
-                  </span>
-                  <span class="author-block">
-                    Ziyue Wang<sup>1</sup>,
-                  </span>
-                  <span class="author-block">
-                    <a href="https://ouyangkun10.github.io/" target="_blank">Kun Ouyang</a><sup>1</sup>,
-                  </span>
-                  <span class="author-block">
-                    <a href="https://llyx97.github.io/" target="_blank">Yuanxin Liu</a><sup>1</sup>,
-                  </span>
-                  <span class="author-block">
-                    <a href="https://ikekonglp.github.io/" target="_blank">Lingpeng Kong</a><sup>5</sup>,
-                  </span>
-                  <span class="author-block">
-                    <a href="https://leuchine.github.io/" target="_blank">Qi Liu</a><sup>5</sup>,
-                  </span>
-                  <span class="author-block">
-                    Pengfei Wan<sup>2</sup>,
-                  </span>
-                  <span class="author-block">
-                    Kun Gai<sup>2</sup>,
-                  </span>
-                  <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=COdftTMAAAAJ&hl=en&oi=ao" target="_blank">Yuanxing Zhang</a><sup>2</sup>,
-                  </span>
-                  <span class="author-block">
-                    <a href="https://xusun26.github.io/" target="_blank">Xu Sun</a><sup>1</sup>
-                  </span>
-                </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <span class="affiliation-block"><sup>1</sup>Peking University, <sup>2</sup>Kling Team, Kuaishou Technology, <sup>3</sup>South China University of Technology,<br> <sup>4</sup>University of Electronic Science and Technology of China, <sup>5</sup>The University of Hong Kong, <sup>6</sup>Institute of Automation, Chinese Academy of Sciences</span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-
-                      <!-- Arxiv PDF link -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/2602.08711" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- Github link -->
-                    <span class="link-block">
-                      <a href="https://github.com/yaolinli/TimeChat-Captioner" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fab fa-github"></i>
-                      </span>
-                      <span>Code & Data</span>
-                      </a>
-                    </span>
-
-                    <!-- Benchmark link -->
-                    <span class="link-block">
-                      <a href="https://huggingface.co/datasets/yaolily/OmniDCBench" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-save"></i>
-                      </span>
-                      <span>Benchmark</span>
-                      </a>
-                    </span>
-
-                    <!-- Dataset link -->
-                    <span class="link-block">
-                      <a href="https://huggingface.co/datasets/yaolily/TimeChat-OmniCap-42K" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-database"></i>
-                      </span>
-                      <span>Dataset</span>
-                      </a>
-                    </span>
-
-                    <!-- Checkpoints link -->
-                    <span class="link-block">
-                      <a href="https://huggingface.co/yaolily/TimeChat-Captioner-GRPO-7B" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-save"></i>
-                      </span>
-                      <span>Model</span>
-                      </a>
-                    </span>
-
-                  </div>
-                </div>
+            <!-- ICML 2026 venue line -->
+            <div class="venue-line">
+              <span class="venue-name"><strong class="venue-amber">ICML 2026</strong> <span class="venue-text">International Conference on Machine Learning</span></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- New Case Study Section -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container" style="max-width: 1000px; margin: 0 auto;">
-        <div style="margin-bottom: 3rem;"></div>
+<!-- ==================== INTERACTIVE DEMO ==================== -->
+<section class="section demo-section" id="demo" style="margin-top: 0; margin-bottom: 0; padding: 3.5rem 0;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered section-title-decorated" style="display: block; margin-bottom: 2.5rem;">Interactive Demo</h2>
+
+    <!-- Case Selection -->
+    <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+      <button id="caseBtn1" class="case-btn active" onclick="switchCase('cn')">Case 1</button>
+      <button id="caseBtn2" class="case-btn inactive" onclick="switchCase('en')">Case 2</button>
+    </div>
+
+    <!-- Video -->
+    <div style="margin-bottom: 2rem;">
+      <div class="demo-video-wrapper" style="max-width: 900px; margin: 0 auto;">
+        <video controls autoplay muted loop playsinline id="demoVideo">
+          <source id="videoSource" src="static/videos/case_cn.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- Interactive Demo Section -->
-<section class="section" id="demo" style="margin-top: 1rem; margin-bottom: 2rem; background-color: #fafbfc; padding: 3rem 0;">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Interactive Demo</h2>
-    
-    <!-- Case Selection Buttons -->
-    <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
-      <button id="caseBtn1" class="button is-medium" style="background: hsl(204, 86%, 53%); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; padding: 0.75rem 2rem;" onclick="switchCase('cn')">Case 1</button>
-      <button id="caseBtn2" class="button is-medium" style="background: #e5e7eb; color: #374151; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; padding: 0.75rem 2rem;" onclick="switchCase('en')">Case 2</button>
-    </div>
-    
-    <div style="margin-bottom: 2rem;">
-      <video controls id="demoVideo" style="width: 100%; max-width: 900px; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12); border: 1px solid #e5e7eb; aspect-ratio: auto; object-fit: contain;">
-        <source id="videoSource" src="static/videos/case_cn.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    
-    <!-- Enhanced Tip Bar -->
-    <div style="background: #f5f5f5; color: #374151; padding: 1rem 1.5rem; border-radius: 8px; margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; border-left: 4px solid hsl(204, 86%, 53%);">
-      <span style="font-size: 1.2rem; margin-right: 0.5rem;">💡</span>
+    <!-- Tip -->
+    <div class="tip-bar" style="margin-bottom: 2rem;">
+      <span style="font-size: 1.2rem; margin-right: 0.5rem;">&#128161;</span>
       <span style="font-weight: 500;">Tip: Select a segment below to view detailed annotations</span>
     </div>
-    
-    <!-- Scrollable Timeline with Hidden Scrollbar -->
-    <div style="overflow-x: auto; white-space: nowrap; padding: 1.5rem; background-color: #ffffff; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); position: relative;">
-      <style>
-        .timeline-container::-webkit-scrollbar { display: none; }
-        .timeline-container { -ms-overflow-style: none; scrollbar-width: none; }
-        .demo-segment:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        .demo-segment.active {
-          background: #f0f7ff !important;
-          color: hsl(204, 86%, 53%) !important;
-          border-bottom-color: hsl(204, 86%, 53%) !important;
-        }
-        .demo-segment.active .segment-indicator {
-          background: hsl(204, 86%, 53%) !important;
-        }
-      </style>
-      <div class="timeline-container" style="display: flex; gap: 1rem;">
-        <div class="demo-segment" data-segment="0" style="flex: 0 0 280px; background: #f9fafb; padding: 1.5rem; border-radius: 8px; cursor: pointer; border-bottom: 3px solid #e5e7eb; transition: all 0.3s ease; position: relative;">
-          <h5 class="title is-6" style="margin-bottom: 0.5rem; color: #374151;">00:00-00:10</h5>
-          <p style="font-size: 0.85rem; color: #6b7280; margin: 0;">Detailed Events</p>
-          <div class="segment-indicator" style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: #95A5B0; border-radius: 0 0 8px 8px;"></div>
+
+    <!-- Timeline -->
+    <div class="timeline-scroll" style="margin-bottom: 2rem;">
+      <div class="timeline-inner">
+        <div class="demo-segment" data-segment="0">
+          <h5 class="title is-6">00:00-00:10</h5>
+          <p>Detailed Events</p>
+          <div class="segment-indicator"></div>
         </div>
-        <div class="demo-segment" data-segment="1" style="flex: 0 0 280px; background: #f9fafb; padding: 1.5rem; border-radius: 8px; cursor: pointer; border-bottom: 3px solid #e5e7eb; transition: all 0.3s ease; position: relative;">
-          <h5 class="title is-6" style="margin-bottom: 0.5rem; color: #374151;">00:11-00:20</h5>
-          <p style="font-size: 0.85rem; color: #6b7280; margin: 0;">Detailed Events</p>
-          <div class="segment-indicator" style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: #95A5B0; border-radius: 0 0 8px 8px;"></div>
+        <div class="demo-segment" data-segment="1">
+          <h5 class="title is-6">00:11-00:20</h5>
+          <p>Detailed Events</p>
+          <div class="segment-indicator"></div>
         </div>
-        <div class="demo-segment" data-segment="2" style="flex: 0 0 280px; background: #f9fafb; padding: 1.5rem; border-radius: 8px; cursor: pointer; border-bottom: 3px solid #e5e7eb; transition: all 0.3s ease; position: relative;">
-          <h5 class="title is-6" style="margin-bottom: 0.5rem; color: #374151;">00:21-00:28</h5>
-          <p style="font-size: 0.85rem; color: #6b7280; margin: 0;">Detailed Events</p>
-          <div class="segment-indicator" style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: #95A5B0; border-radius: 0 0 8px 8px;"></div>
+        <div class="demo-segment" data-segment="2">
+          <h5 class="title is-6">00:21-00:28</h5>
+          <p>Detailed Events</p>
+          <div class="segment-indicator"></div>
         </div>
-        <div class="demo-segment" data-segment="3" style="flex: 0 0 280px; background: #f9fafb; padding: 1.5rem; border-radius: 8px; cursor: pointer; border-bottom: 3px solid #e5e7eb; transition: all 0.3s ease; position: relative;">
-          <h5 class="title is-6" style="margin-bottom: 0.5rem; color: #374151;">00:29-00:36</h5>
-          <p style="font-size: 0.85rem; color: #6b7280; margin: 0;">Detailed Events</p>
-          <div class="segment-indicator" style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: #95A5B0; border-radius: 0 0 8px 8px;"></div>
+        <div class="demo-segment" data-segment="3">
+          <h5 class="title is-6">00:29-00:36</h5>
+          <p>Detailed Events</p>
+          <div class="segment-indicator"></div>
         </div>
-        <div class="demo-segment" data-segment="4" style="flex: 0 0 280px; background: #f9fafb; padding: 1.5rem; border-radius: 8px; cursor: pointer; border-bottom: 3px solid #e5e7eb; transition: all 0.3s ease; position: relative;">
-          <h5 class="title is-6" style="margin-bottom: 0.5rem; color: #374151;">00:37-00:49</h5>
-          <p style="font-size: 0.85rem; color: #6b7280; margin: 0;">Detailed Events</p>
-          <div class="segment-indicator" style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: #95A5B0; border-radius: 0 0 8px 8px;"></div>
+        <div class="demo-segment" data-segment="4">
+          <h5 class="title is-6">00:37-00:49</h5>
+          <p>Detailed Events</p>
+          <div class="segment-indicator"></div>
         </div>
-        <div class="demo-segment" data-segment="5" style="flex: 0 0 280px; background: #f9fafb; padding: 1.5rem; border-radius: 8px; cursor: pointer; border-bottom: 3px solid #e5e7eb; transition: all 0.3s ease; position: relative;">
-          <h5 class="title is-6" style="margin-bottom: 0.5rem; color: #374151;">00:50-00:59</h5>
-          <p style="font-size: 0.85rem; color: #6b7280; margin: 0;">Detailed Events</p>
-          <div class="segment-indicator" style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: #95A5B0; border-radius: 0 0 8px 8px;"></div>
+        <div class="demo-segment" data-segment="5">
+          <h5 class="title is-6">00:50-00:59</h5>
+          <p>Detailed Events</p>
+          <div class="segment-indicator"></div>
         </div>
       </div>
     </div>
 
-    <!-- Detailed Information Panel with Grid Layout -->
-    <div id="detailPanel" style="background: #f0f7ff; border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 16px rgba(0,0,0,0.08); margin-bottom: 2rem; display: none; border-left: 5px solid hsl(204, 86%, 53%);">
-      <h4 id="detailTitle" class="title is-4" style="margin-bottom: 2rem; color: #111827;">Time Segment Details</h4>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-        <div class="dimension-card" style="margin-bottom: 0;">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <span style="font-size: 1.2rem; margin-right: 0.5rem;">📝</span>
-            <span class="tag" style="background: hsl(204, 86%, 53%); color: white; font-weight: 600; font-size: 0.9rem;">Detailed Events</span>
+    <!-- Detail Panel -->
+    <div id="detailPanel" class="detail-panel" style="margin-bottom: 2rem; display: none;">
+      <h4 id="detailTitle" class="title is-4">Time Segment Details</h4>
+      <div class="dimension-grid">
+        <div class="dimension-card">
+          <div class="dim-header">
+            <span class="dim-icon">&#128221;</span>
+            <span class="dim-tag">Detailed Events</span>
           </div>
-          <p id="dim-segment_detail_caption" style="line-height: 1.7; color: #4b5563; margin: 0;">-</p>
+          <p id="dim-segment_detail_caption">-</p>
         </div>
-
-        <div class="dimension-card" style="margin-bottom: 0;">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <span style="font-size: 1.2rem; margin-right: 0.5rem;">🏞️</span>
-            <span class="tag" style="background: hsl(204, 86%, 53%); color: white; font-weight: 600; font-size: 0.9rem;">Visual Background</span>
+        <div class="dimension-card">
+          <div class="dim-header">
+            <span class="dim-icon">&#127748;</span>
+            <span class="dim-tag">Visual Background</span>
           </div>
-          <p id="dim-video_background" style="line-height: 1.7; color: #4b5563; margin: 0;">-</p>
+          <p id="dim-video_background">-</p>
         </div>
-
-        <div class="dimension-card" style="margin-bottom: 0;">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <span style="font-size: 1.2rem; margin-right: 0.5rem;">🎥</span>
-            <span class="tag" style="background: hsl(204, 86%, 53%); color: white; font-weight: 600; font-size: 0.9rem;">Camera State</span>
+        <div class="dimension-card">
+          <div class="dim-header">
+            <span class="dim-icon">&#127909;</span>
+            <span class="dim-tag">Camera State</span>
           </div>
-          <p id="dim-camera_state" style="line-height: 1.7; color: #4b5563; margin: 0;">-</p>
+          <p id="dim-camera_state">-</p>
         </div>
-
-        <div class="dimension-card" style="margin-bottom: 0;">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <span style="font-size: 1.2rem; margin-right: 0.5rem;">🎬</span>
-            <span class="tag" style="background: hsl(204, 86%, 53%); color: white; font-weight: 600; font-size: 0.9rem;">Shot Editing Style</span>
+        <div class="dimension-card">
+          <div class="dim-header">
+            <span class="dim-icon">&#127916;</span>
+            <span class="dim-tag">Shot Editing Style</span>
           </div>
-          <p id="dim-shooting_style" style="line-height: 1.7; color: #4b5563; margin: 0;">-</p>
+          <p id="dim-shooting_style">-</p>
         </div>
-
-        <div class="dimension-card" style="margin-bottom: 0;">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <span style="font-size: 1.2rem; margin-right: 0.5rem;">💬</span>
-            <span class="tag" style="background: hsl(204, 86%, 53%); color: white; font-weight: 600; font-size: 0.9rem;">Dialogue Content</span>
+        <div class="dimension-card">
+          <div class="dim-header">
+            <span class="dim-icon">&#128172;</span>
+            <span class="dim-tag">Dialogue Content</span>
           </div>
-          <p id="dim-speech_content" style="line-height: 1.7; color: #4b5563; margin: 0;">-</p>
+          <p id="dim-speech_content">-</p>
         </div>
-
-        <div class="dimension-card" style="margin-bottom: 0;">
-          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-            <span style="font-size: 1.2rem; margin-right: 0.5rem;">🔊</span>
-            <span class="tag" style="background: hsl(204, 86%, 53%); color: white; font-weight: 600; font-size: 0.9rem;">Acoustics Content</span>
+        <div class="dimension-card">
+          <div class="dim-header">
+            <span class="dim-icon">&#128266;</span>
+            <span class="dim-tag">Acoustics Content</span>
           </div>
-          <p id="dim-acoustics_content" style="line-height: 1.7; color: #4b5563; margin: 0;">-</p>
+          <p id="dim-acoustics_content">-</p>
         </div>
       </div>
     </div>
@@ -376,7 +315,6 @@
     }
   ];
 
-  // Case 2 Data (Pure Music)
   const demoDataEN = [
     {
       timestamp: "00:00-00:06",
@@ -425,199 +363,270 @@
     }
   ];
 
-  // Current case tracker
   let currentCase = 'cn';
 
-  // Helper function to convert time string to seconds
   function timeToSeconds(timeStr) {
     const parts = timeStr.split(':');
     return parseInt(parts[0]) * 60 + parseInt(parts[1]);
   }
 
-  // Switch case function
+  // Currently active segment index (per case) — used by timeupdate auto-sync
+  let activeSegmentIndex = -1;
+
+  // Render the detail panel for a given segment index of the current case
+  function showSegmentDetail(index) {
+    const dataArray = currentCase === 'cn' ? demoData : demoDataEN;
+    const data = dataArray[index];
+    if (!data) return;
+    document.getElementById('detailTitle').textContent = 'Time Segment: ' + data.timestamp;
+    document.getElementById('dim-segment_detail_caption').textContent = data.segment_detail_caption;
+    document.getElementById('dim-video_background').textContent = data.video_background;
+    document.getElementById('dim-camera_state').textContent = data.camera_state;
+    document.getElementById('dim-shooting_style').textContent = data.shooting_style;
+    document.getElementById('dim-speech_content').textContent = data.speech_content;
+    document.getElementById('dim-acoustics_content').textContent = data.acoustics_content;
+    document.getElementById('detailPanel').style.display = 'block';
+    // highlight the matching segment card
+    const segments = document.querySelectorAll('.demo-segment');
+    segments.forEach((s, i) => {
+      if (i === index) { s.classList.add('active'); }
+      else { s.classList.remove('active'); }
+    });
+    activeSegmentIndex = index;
+  }
+
+  // Find which segment the video's currentTime falls into
+  function findSegmentForTime(t) {
+    const dataArray = currentCase === 'cn' ? demoData : demoDataEN;
+    for (let i = 0; i < dataArray.length; i++) {
+      const parts = dataArray[i].timestamp.split('-');
+      const start = timeToSeconds(parts[0]);
+      const end = timeToSeconds(parts[1]);
+      // inclusive of start, exclusive of end (so we move on cleanly)
+      if (t >= start && t < end + 1) return i;
+    }
+    return -1;
+  }
+
+  function attachTimeupdateSync(video) {
+    if (video._tcSyncBound) return;
+    video._tcSyncBound = true;
+    video.addEventListener('timeupdate', function() {
+      if (!video.duration || isNaN(video.duration)) return;
+      const idx = findSegmentForTime(video.currentTime);
+      if (idx >= 0 && idx !== activeSegmentIndex) {
+        showSegmentDetail(idx);
+      }
+    });
+    // when video loops back to 0, reset active state immediately
+    video.addEventListener('seeked', function() {
+      if (video.currentTime < 0.5) activeSegmentIndex = -1;
+    });
+  }
+
   function switchCase(caseType) {
     currentCase = caseType;
     const videoSource = document.getElementById('videoSource');
     const caseBtn1 = document.getElementById('caseBtn1');
     const caseBtn2 = document.getElementById('caseBtn2');
-    
-    // Define timestamps for each case
+
     const caseTimestamps = {
       cn: ["00:00-00:10", "00:11-00:20", "00:21-00:28", "00:29-00:36", "00:37-00:49", "00:50-00:59"],
       en: ["00:00-00:06", "00:07-00:11", "00:12-00:22", "00:23-00:27", "00:28-00:33"]
     };
-    
-    // Update button styles
+
     if (caseType === 'cn') {
       videoSource.src = 'static/videos/case_cn.mp4';
-      caseBtn1.style.background = 'hsl(204, 86%, 53%)';
-      caseBtn1.style.color = 'white';
-      caseBtn2.style.background = '#e5e7eb';
-      caseBtn2.style.color = '#374151';
+      caseBtn1.className = 'case-btn active';
+      caseBtn2.className = 'case-btn inactive';
     } else {
       videoSource.src = 'static/videos/case_en.mp4';
-      caseBtn1.style.background = '#e5e7eb';
-      caseBtn1.style.color = '#374151';
-      caseBtn2.style.background = 'hsl(204, 86%, 53%)';
-      caseBtn2.style.color = 'white';
+      caseBtn1.className = 'case-btn inactive';
+      caseBtn2.className = 'case-btn active';
     }
-    
-    // Update segment timestamps and rebind click handlers
+
     const timestamps = caseTimestamps[caseType];
     const segments = document.querySelectorAll('.demo-segment');
     segments.forEach((segment, index) => {
       if (index < timestamps.length) {
         segment.style.display = 'flex';
+        segment.style.flexDirection = 'column';
         const timeLabel = segment.querySelector('h5');
         timeLabel.textContent = timestamps[index];
-        
-        // Remove old event listener and bind new one
+
         const newSegment = segment.cloneNode(true);
         segment.parentNode.replaceChild(newSegment, segment);
-        
+
         newSegment.addEventListener('click', function() {
-          const dataArray = caseType === 'cn' ? demoData : demoDataEN;
+          const dataArray = currentCase === 'cn' ? demoData : demoDataEN;
           const data = dataArray[index];
-          
-          if (data) {
-            // Update detail panel
-            document.getElementById('detailTitle').textContent = 'Time Segment: ' + data.timestamp;
-            document.getElementById('dim-segment_detail_caption').textContent = data.segment_detail_caption;
-            document.getElementById('dim-video_background').textContent = data.video_background;
-            document.getElementById('dim-camera_state').textContent = data.camera_state;
-            document.getElementById('dim-shooting_style').textContent = data.shooting_style;
-            document.getElementById('dim-speech_content').textContent = data.speech_content;
-            document.getElementById('dim-acoustics_content').textContent = data.acoustics_content;
-            
-            // Show detail panel
-            document.getElementById('detailPanel').style.display = 'block';
-            
-            // Update video time
-            const times = data.timestamp.split('-');
-            const startTime = timeToSeconds(times[0]);
-            const video = document.getElementById('demoVideo');
-            if (video) {
-              video.currentTime = startTime;
+          if (!data) return;
+          // update detail panel + highlight
+          showSegmentDetail(index);
+          // seek the video to this segment and keep playing
+          const times = data.timestamp.split('-');
+          const startTime = timeToSeconds(times[0]);
+          const video = document.getElementById('demoVideo');
+          if (video) {
+            const doSeek = () => {
+              try { video.currentTime = startTime; } catch (e) { /* ignored */ }
+              const playPromise = video.play();
+              if (playPromise !== undefined) {
+                playPromise.catch(() => { /* autoplay-policy fallback */ });
+              }
+            };
+            if (video.readyState < 1) {
+              video.addEventListener('loadedmetadata', doSeek, { once: true });
+            } else {
+              doSeek();
             }
-            
-            // Highlight selected segment
-            document.querySelectorAll('.demo-segment').forEach(s => s.classList.remove('active'));
-            this.classList.add('active');
           }
         });
       } else {
         segment.style.display = 'none';
       }
     });
-    
-    // Reload video
+
     const video = document.getElementById('demoVideo');
     video.load();
-    
-    // Clear detail panel and segment highlights when switching cases
-    document.getElementById('detailPanel').style.display = 'none';
+    activeSegmentIndex = -1;
     document.querySelectorAll('.demo-segment').forEach(s => s.classList.remove('active'));
-    
-    // Reset video time to beginning
     video.currentTime = 0;
+    // autoplay loop on case switch
+    video.muted = true;
+    video.loop = true;
+    const p = video.play();
+    if (p !== undefined) { p.catch(() => { /* autoplay-policy fallback */ }); }
+    // Auto-sync segment highlight + caption with current video time
+    attachTimeupdateSync(video);
+    // Seed detail panel with the first segment so it doesn't look empty
+    showSegmentDetail(0);
   }
 
-  // Initialize with Case 1 as default
   switchCase('cn');
 </script>
 
-<section class="hero teaser">
-  <div class="container" style="padding: 20px; max-width: 1000px; margin: 0 auto;">
-    <h2 class="title is-3 has-text-centered" style="margin-bottom: 1.5rem;">Abstract</h2>
-    
-    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+<!-- ==================== ABSTRACT ==================== -->
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered section-title-decorated" style="display: block; margin-bottom: 2rem;">Abstract</h2>
+
+    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 960px; margin-left: auto; margin-right: auto;">
       <p>
-We introduce <strong>TimeChat-Captioner</strong>, a model that generates script-like, temporally dense, and structurally rich audio-visual narratives. Unlike traditional video captioning approaches that produce single-sentence summaries, TimeChat-Captioner provides temporally-dense scene segmentation with explicit MM:SS timestamps and description-dense structured captions spanning six dimensions: <strong>Detailed Events</strong> (narrating audiovisual content and actions), <strong>Visual Background</strong> (depicting setting, location, and atmosphere), <strong>Camera State</strong> (describing camera movements, angles, and framing), <strong>Shot Editing Style</strong> (analyzing post-production editing), <strong>Dialogue Content</strong> (transcription and summary with speaker ID), and <strong>Acoustics Content</strong> (portraying background sounds, music, and speaking tones).
-</p>
-
-<p>
-To address the challenge of evaluating continuous captions with subjective boundary ambiguity, we propose <strong>SodaM</strong>, a unified metric that employs a two-stage alignment strategy combining IoU-based Dynamic Programming with many-to-one merging, and measures semantic completeness through LLM-based CheckList scoring.
-</p>
-
-<p>
-We construct two complementary datasets: <strong>OmniDCBench</strong> (1,122 videos with human annotations, averaging 995 words per video) as a high-quality benchmark, and <strong>TimeChatCap-42K</strong> (42,000 synthesized video-caption pairs) for training. Our model, <strong>TimeChat-Captioner-7B</strong>, built on Qwen2.5-Omni with multimodal RoPE for precise temporal localization, employs a two-stage training strategy: supervised fine-tuning followed by Group Relative Policy Optimization (GRPO) that jointly optimizes temporal accuracy and caption quality through a composite reward function.
-</p>
-
-<p>
-<strong>TimeChat-Captioner-7B</strong> achieves a SodaM score of <strong>35.0</strong>, surpassing Gemini-2.5-Pro (33.7) and Gemini-2.5-Flash (30.0), while significantly outperforming previous open-source models. The model shows particular strength in Camera (12.4), Acoustics (38.2), and Dialogue (54.3) dimensions and generalizes effectively to downstream tasks, achieving 52.8 on DailyOmni, 22.6 on WorldSense, and 48.3 R1@0.7 on Charades-STA, outperforming specialized expert models.
+This paper proposes <strong>Omni Dense Captioning</strong>, a novel task designed to generate continuous, fine-grained, and structured audio-visual narratives with explicit timestamps. To ensure dense semantic coverage, we introduce a <strong>six-dimensional structural schema</strong> to create "script-like" captions, enabling readers to vividly imagine the video content scene by scene, akin to a cinematographic screenplay. The six dimensions span <strong>Detailed Events</strong>, <strong>Visual Background</strong>, <strong>Camera State</strong>, <strong>Shot Editing Style</strong>, <strong>Dialogue Content</strong>, and <strong>Acoustics Content</strong>.
       </p>
-      
+      <p>
+To facilitate research, we construct <strong>OmniDCBench</strong>, a high-quality, human-annotated benchmark of 1,122 videos averaging 995 words per video, and propose <strong>SodaM</strong>, a unified metric that evaluates time-aware detailed descriptions while mitigating scene boundary ambiguity via IoU-based Dynamic Programming alignment and many-to-one merging.
+      </p>
+      <p>
+Furthermore, we construct a training dataset, <strong>TimeChatCap-42K</strong>, and present <strong>TimeChat-Captioner-7B</strong>, a strong baseline built on Qwen2.5-Omni and trained via SFT and GRPO with task-specific rewards. Extensive experiments demonstrate that TimeChat-Captioner-7B achieves state-of-the-art performance with a SodaM score of <strong>35.0</strong>, surpassing Gemini-2.5-Pro (33.7), while its generated dense descriptions significantly boost downstream capabilities in audio-visual reasoning (DailyOmni and WorldSense) and temporal grounding (Charades-STA). All datasets, models, and code are publicly available.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- Time-Aware and Structural Audio-Visual Captions task 定义 -->
-<section class="section" style="margin-top: 1rem; margin-bottom: 2rem;">
+<!-- ==================== TASK DEFINITION ==================== -->
+<section class="section section-alt">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Time-Aware and Structural Audio-Visual Captions</h2>
-    
+    <h2 class="title is-3 has-text-centered section-title-decorated" style="display: block;">Time-Aware and Structural Audio-Visual Captions</h2>
+
     <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
-    <p style="font-size: 1.1rem;">
+      <p style="font-size: 1.1rem;">
         <strong>TimeChat-Captioner</strong> generates script-like, temporally dense, and structurally rich audio-visual narratives for multi-scene videos. At its core is the innovative <strong>six-dimensional structural schema</strong> that comprehensively describes video content like a professional film script.
-    </p>
-    <p style="font-size: 1.05rem;">
-      The <strong>six structural dimensions</strong> include:
-    </p>
-    <ul style="font-size: 1.05rem; list-style-type: disc; margin-left: 2rem;">
-      <li><strong>Detailed Events:</strong> narrating audiovisual content and actions</li>
-      <li><strong>Visual Background:</strong> depicting setting, location, and atmosphere</li>
-      <li><strong>Camera State:</strong> describing camera movements, angles, and framing</li>
-      <li><strong>Shot Editing Style:</strong> analyzing post-production editing</li>
-      <li><strong>Dialogue Content:</strong> transcription and summary with speaker ID</li>
-      <li><strong>Acoustics Content:</strong> portraying background sounds, music, and speaking tones</li>
-    </ul>
+      </p>
     </div>
-    <div style="margin-bottom: 2.5rem;">
-      <img src="static/images/caption_teaser.png" alt="TimeChat-Captioner Task Overview" style="width: 100%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-      <p style="font-size: 0.9rem; color: #95A5B0; text-align: center; margin-top: 0.5rem;">
+
+    <div class="content" style="max-width: 1000px; margin-left: auto; margin-right: auto; margin-bottom: 2rem;">
+      <ul class="six-dims-list">
+        <li><strong>Detailed Events:</strong> Narrating audiovisual content and actions</li>
+        <li><strong>Visual Background:</strong> Depicting setting, location, and atmosphere</li>
+        <li><strong>Camera State:</strong> Describing camera movements, angles, and framing</li>
+        <li><strong>Shot Editing Style:</strong> Analyzing post-production editing techniques</li>
+        <li><strong>Dialogue Content:</strong> Transcription and summary with speaker identification</li>
+        <li><strong>Acoustics Content:</strong> Portraying background sounds, music, and speaking tones</li>
+      </ul>
+    </div>
+
+    <div class="figure-container" style="max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <img src="static/images/caption_teaser.png" alt="TimeChat-Captioner Task Overview">
+      <p class="figure-caption">
         TimeChat-Captioner generates temporally-dense and description-dense captions with six structural dimensions.
       </p>
     </div>
   </div>
 </section>
 
-<!-- New section about SodaM Metric and Model Architecture -->
-<section class="section" id="method" style="margin-top: 1rem; margin-bottom: 2rem;">
+<!-- ==================== SODAM METRIC ==================== -->
+<section class="section" id="method">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">SodaM: A Unified Evaluation Metric</h2>
-    
+    <h2 class="title is-3 has-text-centered section-title-decorated" style="display: block;">SodaM: A Unified Evaluation Metric</h2>
+
     <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
       <p>
-        Evaluating continuous captions faces the <strong>"boundary ambiguity"</strong> challenge—scene boundaries are subjective, and predictions may be more fine-grained than ground truth. We propose <strong>SodaM</strong>, a unified metric that addresses these challenges through a sophisticated two-stage alignment strategy.
+        Evaluating continuous captions faces the <strong>"boundary ambiguity"</strong> challenge&mdash;scene boundaries are subjective, and predictions may be more fine-grained than ground truth. We propose <strong>SodaM</strong>, a unified metric that addresses these challenges through a sophisticated two-stage alignment strategy.
       </p>
     </div>
     <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
-        <h4 class="title is-5">How SodaM Works</h4>
-
-        <ol style="list-style-type: decimal; margin-left: 2rem;">
-          <li>
-            <strong>IoU-based Dynamic Programming Alignment:</strong> Uses Dynamic Programming to find the optimal alignment path through the (M, N) scene grid based on temporal Intersection over Union (IoU), ensuring the best match between predicted and ground-truth scene boundaries.
-          </li>
-          <li>
-            <strong>Many-to-One Merging:</strong> Gracefully handles cases where models generate finer-grained segments than human references by concatenating predicted captions for a single ground-truth match, avoiding unfair penalties for detailed predictions.
-          </li>
-          <li>
-            <strong>CheckList Score for Semantic Completeness:</strong> Uses an LLM (Gemini-2.5-Flash) to judge if predicted captions cover atomic elements (keypoints) from the ground truth, providing a holistic measure of semantic coverage across all six dimensions.
-          </li>
-        </ol>
+      <h4 class="title is-5">How SodaM Works</h4>
+      <ol style="list-style-type: decimal; margin-left: 2rem;">
+        <li>
+          <strong>IoU-based Dynamic Programming Alignment:</strong> Uses Dynamic Programming to find the optimal alignment path through the (M, N) scene grid based on temporal Intersection over Union (IoU), ensuring the best match between predicted and ground-truth scene boundaries.
+        </li>
+        <li>
+          <strong>Many-to-One Merging:</strong> Gracefully handles cases where models generate finer-grained segments than human references by concatenating predicted captions for a single ground-truth match, avoiding unfair penalties for detailed predictions.
+        </li>
+        <li>
+          <strong>CheckList Score for Semantic Completeness:</strong> Uses an LLM (Gemini-2.5-Flash) to judge if predicted captions cover atomic elements (keypoints) from the ground truth, providing a holistic measure of semantic coverage across all six dimensions.
+        </li>
+      </ol>
     </div>
 
-    <h2 class="title is-3 has-text-centered">TimeChat-Captioner-7B Architecture</h2>
-    
+    <h2 class="title is-3 has-text-centered section-title-decorated" style="display: block; margin-top: 3rem;">TimeChat-Captioner-7B Architecture</h2>
+
     <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
       <p>
         <strong>TimeChat-Captioner-7B</strong> is built on Qwen2.5-Omni with key architectural innovations for precise temporal localization and synchronous audio-visual perception.
       </p>
     </div>
-    
-    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
-      <h4 class="title is-5">Key Architectural Features</h4>
-      <ul class="feature-list" style="list-style-type: none; margin-left: 0;">
+
+    <!-- Featured: Composite Reward Function (highlighted) + Architecture image -->
+    <div class="content" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <h4 class="title is-5 featured-heading">Composite Reward Function</h4>
+      <div class="reward-grid">
+        <div class="reward-card">
+          <div class="reward-card-tag">R<sub>format</sub></div>
+          <div class="reward-card-title">Format Reward</div>
+          <p>Binary reward for valid JSON-formatted output (1 if parseable, 0 otherwise).</p>
+        </div>
+        <div class="reward-card">
+          <div class="reward-card-tag">R<sub>length</sub></div>
+          <div class="reward-card-title">Length Reward</div>
+          <p>Regularizes output length to prevent hallucinations and repetitive content.</p>
+        </div>
+        <div class="reward-card">
+          <div class="reward-card-tag">R<sub>time</sub></div>
+          <div class="reward-card-title">Timestamp Reward</div>
+          <p>Average F1 score at IoU thresholds {0.3, 0.5, 0.7, 0.9} for temporal accuracy.</p>
+        </div>
+        <div class="reward-card">
+          <div class="reward-card-tag">R<sub>cap</sub></div>
+          <div class="reward-card-title">Time-aware Caption Reward</div>
+          <p>Uses the SodaM metric to measure semantic completeness and temporal alignment across all six dimensions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="figure-container" style="max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <img src="static/images/model_architecture.png" alt="TimeChat-Captioner-7B Architecture">
+      <p class="figure-caption">
+        The architecture of TimeChat-Captioner-7B with synchronous audio-visual perception and M-RoPE for temporal localization, jointly optimized by the composite reward above.
+      </p>
+    </div>
+
+    <!-- Supporting: Key Architectural Features (de-emphasized) -->
+    <div class="content has-text-justified" style="margin-top: 2.5rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <h4 class="title is-5 supporting-heading">Key Architectural Features</h4>
+      <ul class="feature-list feature-list-compact">
         <li>
           <strong>Synchronous Perception:</strong>
           <p>Interleaved audio and visual tokens in a single sequence, enabling holistic audio-visual understanding without separate processing streams.</p>
@@ -628,218 +637,134 @@ We construct two complementary datasets: <strong>OmniDCBench</strong> (1,122 vid
         </li>
         <li>
           <strong>Two-Stage Training (SFT + GRPO):</strong>
-          <p>Stage 1: Supervised Fine-Tuning on the TimeChatCap-42K dataset teaches the complex "script" format. Stage 2: Group Relative Policy Optimization (GRPO) jointly optimizes temporal accuracy and caption quality through a composite reward function combining multiple reward signals.</p>
+          <p>Stage 1: Supervised Fine-Tuning on TimeChatCap-42K teaches the complex "script" format. Stage 2: Group Relative Policy Optimization (GRPO) jointly optimizes temporal accuracy and caption quality through a composite reward function.</p>
         </li>
       </ul>
     </div>
-
-    <!-- Reward Function Details -->
-    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
-      <h4 class="title is-5">Composite Reward Function</h4>
-      <ul style="list-style-type: disc; margin-left: 2rem;">
-        <li><strong>Format Reward:</strong> Binary reward for valid JSON-formatted output (1 if parseable, 0 otherwise).</li>
-        <li><strong>Length Reward:</strong> Regularizes output length to prevent hallucinations and repetitive content.</li>
-        <li><strong>Timestamp Reward:</strong> Average F1 score at IoU thresholds {0.3, 0.5, 0.7, 0.9} for temporal accuracy.</li>
-        <li><strong>Time-aware Caption Reward:</strong> Uses the SodaM metric to measure semantic completeness and temporal alignment across all six dimensions.</li>
-      </ul>
-    </div>
-
-    <!-- Model Architecture figure -->
-    <div style="margin-bottom: 2.5rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
-      <img src="static/images/model_architecture.png" alt="TimeChat-Captioner-7B Architecture" style="width: 100%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-      <p style="font-size: 0.9rem; color: #95A5B0; text-align: center; margin-top: 0.5rem;">
-        The architecture of TimeChat-Captioner-7B with synchronous audio-visual perception and M-RoPE for temporal localization.
-      </p>
-    </div>
   </div>
 </section>
-<!-- Dataset Information Section -->
-<section class="section" id="dataset" style="margin-top: 0; padding-top: 0.5rem; margin-bottom: 1rem;">
+
+<!-- ==================== DATASET ==================== -->
+<section class="section section-alt" id="dataset">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Dataset Construction</h2>
-    
+    <h2 class="title is-3 has-text-centered section-title-decorated" style="display: block;">Dataset Construction</h2>
+
     <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
       <p>
         We construct two complementary datasets to support the dense video captioning task: <strong>OmniDCBench</strong> as a high-quality human-annotated benchmark and <strong>TimeChatCap-42K</strong> as a large-scale training set.
       </p>
     </div>
 
-    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+    <!-- OmniDCBench -->
+    <div class="content has-text-justified" style="margin-bottom: 1.5rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
       <h4 class="title is-5">OmniDCBench: Human Benchmark</h4>
       <p>
         <strong>OmniDCBench</strong> is entirely human-annotated by experts with cinematography knowledge, ensuring high-quality annotations that capture the nuances of professional video production.
       </p>
     </div>
-    
-    <!-- Card-style dataset statistics for OmniDCBench -->
-    <div class="box" style="margin-bottom: 2.5rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; background-color: #f9f9fd; border-top: 5px solid #95A5B0; max-width: 1000px; margin-left: auto; margin-right: auto;">
-        <h4 class="title is-5" style="margin-bottom: 1rem;">OmniDCBench Statistics:</h4>
-        <ul style="list-style-type: disc; margin-left: 2rem;">
-          <li style="margin-bottom: 1rem;">
-            <strong>Scale:</strong> 1,122 high-resolution video clips
-          </li>
-          <li style="margin-bottom: 1rem;">
-            <strong>Annotation Depth:</strong> Averaging 995 words per video
-          </li>
-          <li style="margin-bottom: 1rem;">
-            <strong>Expert Annotation:</strong> Entirely human-annotated by experts with cinematography knowledge
-          </li>
-          <li style="margin-bottom: 1rem;">
-            <strong>Coverage:</strong> All six structural dimensions (Detailed Events, Visual Background, Camera State, Shot Editing Style, Dialogue Content, Acoustics Content)
-          </li>
-        </ul>
-        <img src="static/images/OnimiDCBench_stat.png" alt="Statistics of human-annotated OmniDCBench" style="width: 100%; border-radius: 4px; margin-top: 1rem;">
-      </div>
 
-    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+    <div class="stats-card" style="margin-bottom: 2.5rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <h4>OmniDCBench Statistics</h4>
+      <ul style="list-style-type: disc; margin-left: 2rem;">
+        <li><strong>Scale:</strong> 1,122 high-resolution video clips</li>
+        <li><strong>Annotation Depth:</strong> Averaging 995 words per video</li>
+        <li><strong>Expert Annotation:</strong> Entirely human-annotated by experts with cinematography knowledge</li>
+        <li><strong>Coverage:</strong> All six structural dimensions</li>
+      </ul>
+      <img src="static/images/OnimiDCBench_stat.png" alt="Statistics of human-annotated OmniDCBench" style="width: 100%; margin-top: 1rem;">
+    </div>
+
+    <!-- TimeChatCap-42K -->
+    <div class="content has-text-justified" style="margin-bottom: 1.5rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
       <h4 class="title is-5">TimeChatCap-42K: Training Set</h4>
       <p>
         <strong>TimeChatCap-42K</strong> is synthesized using Gemini-2.5-Pro via a three-stage pipeline: (1) Boundary Segmentation for establishing rough timestamps, (2) Detailed Caption Generation for expanding into the six-dimensional structural schema, and (3) Quality Filtering to ensure high-quality annotations.
       </p>
     </div>
 
-    <!-- Card-style dataset statistics for TimeChatCap-42K -->
-    <div class="box" style="margin-bottom: 2.5rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; background-color: #f9f9fd; border-top: 5px solid #95A5B0; max-width: 1000px; margin-left: auto; margin-right: auto;">
-        <h4 class="title is-5" style="margin-bottom: 1rem;">TimeChatCap-42K Statistics:</h4>
-        <ul style="list-style-type: disc; margin-left: 2rem;">
-          <li style="margin-bottom: 1rem;">
-            <strong>Scale:</strong> 42,000 high-quality video-script pairs
-          </li>
-          <li style="margin-bottom: 1rem;">
-            <strong>Synthesis Pipeline:</strong> Three-stage process using Gemini-2.5-Pro (Boundary Segmentation → Detailed Caption Generation → Quality Filtering)
-          </li>
-          <li style="margin-bottom: 1rem;">
-            <strong>Quality:</strong> Structured captions following the six-dimensional schema
-          </li>
-          <li style="margin-bottom: 1rem;">
-            <strong>Purpose:</strong> Large-scale training for teaching the model complex "script" format
-          </li>
-        </ul>
-        <img src="static/images/train_stat.png" alt="Statistics of the training dataset TimeChatCap-42K" style="width: 100%; border-radius: 4px; margin-top: 1rem;">
-      </div>
+    <div class="stats-card" style="margin-bottom: 2.5rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <h4>TimeChatCap-42K Statistics</h4>
+      <ul style="list-style-type: disc; margin-left: 2rem;">
+        <li><strong>Scale:</strong> 42,000 high-quality video-script pairs</li>
+        <li><strong>Synthesis Pipeline:</strong> Three-stage process using Gemini-2.5-Pro</li>
+        <li><strong>Quality:</strong> Structured captions following the six-dimensional schema</li>
+        <li><strong>Purpose:</strong> Large-scale training for teaching the model complex "script" format</li>
+      </ul>
+      <img src="static/images/train_stat.png" alt="Statistics of the training dataset TimeChatCap-42K" style="width: 100%; margin-top: 1rem;">
     </div>
-    
-    <!-- Dataset Example Visualization -->
-    <div class="container is-max-desktop">
-      <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
-        <img src="static/images/TimeChatCap42k_pipeline.png" alt="Overview of the synthetic training data construction pipeline for the training dataset TimeChatCap-42K" style="width: 100%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-        <p style="font-size: 0.9rem; color: #95A5B0; text-align: center; margin-top: 0.5rem;">
-          Overview of the synthetic training data construction pipeline for the training dataset TimeChatCap-42K.
-        </p>
-      </div>
+
+    <div class="figure-container" style="max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <img src="static/images/TimeChatCap42k_pipeline.png" alt="Overview of the synthetic training data construction pipeline">
+      <p class="figure-caption">
+        Overview of the synthetic training data construction pipeline for TimeChatCap-42K.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- End Dataset Section -->
-
-<!-- Experiments Section -->
-<section class="section" id="experiments" style="margin-top: 1rem; margin-bottom: 2rem;">
+<!-- ==================== EXPERIMENTS ==================== -->
+<section class="section" id="experiments">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Experimental Results</h2>
-    
-    <!-- Table 1: Main Results on OmniDCBench -->
-    <div class="content has-text-centered" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+    <h2 class="title is-3 has-text-centered section-title-decorated" style="display: block;">Experimental Results</h2>
+
+    <!-- Main Results -->
+    <div class="content has-text-centered" style="margin-bottom: 2.5rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
       <h4 class="title is-5 has-text-centered">Main Results on OmniDCBench</h4>
-      
-      <p>
+      <p class="has-text-justified">
         <strong>TimeChat-Captioner-7B</strong> achieves a SodaM score of <strong>35.0</strong>, surpassing Gemini-2.5-Pro (33.7) and Gemini-2.5-Flash (30.0), establishing state-of-the-art performance. The model significantly outperforms previous open-source models like Qwen3-Omni (14.3) and MiniCPM-o-2.6 (5.4).
       </p>
-      
-      <div style="overflow-x: auto; margin-bottom: 1rem;">
-        <img src="static/images/main_results.png" alt="Main Results on OmniDCBench (Table 1)" style="width: 90%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); display: block; margin: 0 auto;">
+      <div style="overflow-x: auto; margin: 1.5rem 0;">
+        <img class="result-img" src="static/images/main_results.png" alt="Main Results on OmniDCBench">
       </div>
-      
-      <p style="font-size: 0.9rem; color: #95A5B0; text-align: center; margin-top: 0.5rem; margin-bottom: 2rem;">
-        Main experimental results on OmniDCBench. TimeChat-Captioner-7B shows particular strength in Camera (12.4), Acoustics (38.2), and Dialogue (54.3) dimensions, which are traditionally difficult for MLLMs.
+      <p class="figure-caption" style="margin-bottom: 2rem;">
+        Main experimental results on OmniDCBench. TimeChat-Captioner-7B shows particular strength in Camera (12.4), Acoustics (38.2), and Dialogue (54.3) dimensions.
       </p>
     </div>
-    
-    <!-- Table 2: Downstream Generalization Results -->
-    <div class="content has-text-centered" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
-      <h4 class="title is-5 has-text-centered">Downstream Generalization: Audio-Visual Reasoning</h4>
-      
-      <p>
-        TimeChat-Captioner-7B demonstrates strong generalization to audio-visual reasoning tasks, achieving <strong>52.8</strong> on DailyOmni and <strong>22.6</strong> on WorldSense (best among open-source models), showing that the fine-grained audio-visual understanding learned from dense video captioning transfers effectively to other multimodal tasks.
+
+    <!-- Downstream: Caption-based AV Reasoning -->
+    <div class="content has-text-centered" style="margin-bottom: 2.5rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <h4 class="title is-5 has-text-centered">Downstream Generalization: Caption-based Audio-Visual Reasoning</h4>
+      <p class="has-text-justified">
+        We probe the <em>information richness</em> of generated captions with a <strong>caption-based QA protocol</strong>: each model produces video captions, and a frozen <strong>judge LLM</strong> answers Omni Video QA questions using <em>only</em> those captions as evidence&mdash;no video access. Higher QA accuracy therefore reflects more faithful and complete audio-visual content packed into the caption. Under this protocol, captions from TimeChat-Captioner-7B drive the judge to <strong>52.8</strong> on DailyOmni and <strong>22.6</strong> on WorldSense (best among open-source models), demonstrating that our time-aware, six-dimensional captions transfer rich audio-visual evidence to downstream reasoning.
       </p>
-      
-      <div style="overflow-x: auto; margin-bottom: 1rem;">
-        <img src="static/images/table2_downstream.png" alt="Downstream Generalization Results (Table 2)" style="width: 80%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); display: block; margin: 0 auto;">
+      <div style="overflow-x: auto; margin: 1.5rem 0;">
+        <img class="result-img" style="width: 80%;" src="static/images/table2_downstream.png" alt="Caption-based Audio-Visual Reasoning Results">
       </div>
-      
-      <p style="font-size: 0.9rem; color: #95A5B0; text-align: center; margin-top: 0.5rem; margin-bottom: 2rem;">
-        Performance on audio-visual reasoning benchmarks (DailyOmni and WorldSense).
+      <p class="figure-caption" style="margin-bottom: 2rem;">
+        Caption-based QA accuracy on DailyOmni and WorldSense. The judge LLM answers each Omni Video QA item using only the caption produced by each captioner (no raw video), so the score reflects information richness of the caption itself.
       </p>
     </div>
-    
-    <!-- Table 3: Temporal Grounding Results -->
+
+    <!-- Temporal Grounding -->
     <div class="content has-text-centered" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
       <h4 class="title is-5 has-text-centered">Temporal Grounding on Charades-STA</h4>
-      
-      <p>
-        On the temporal grounding task Charades-STA, TimeChat-Captioner-7B achieves an R1@0.7 of <strong>48.3</strong>, outperforming specialized expert models like TimeSuite (43.0). This demonstrates that the precise temporal localization capabilities learned through M-RoPE and GRPO training generalize effectively to temporal grounding tasks.
+      <p class="has-text-justified">
+        On the temporal grounding task Charades-STA, TimeChat-Captioner-7B achieves an R1@0.7 of <strong>48.3</strong>, outperforming specialized expert models like TimeSuite (43.0). This demonstrates that precise temporal localization capabilities learned through M-RoPE and GRPO training generalize effectively to temporal grounding tasks.
       </p>
-      
-      <div style="overflow-x: auto; margin-bottom: 1rem;">
-        <img src="static/images/table3_temporal.png" alt="Temporal Grounding Results (Table 3)" style="width: 80%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); display: block; margin: 0 auto;">
+      <div style="overflow-x: auto; margin: 1.5rem 0;">
+        <img class="result-img" style="width: 80%;" src="static/images/table3_temporal.png" alt="Temporal Grounding Results">
       </div>
-      
-      <p style="font-size: 0.9rem; color: #95A5B0; text-align: center; margin-top: 0.5rem; margin-bottom: 1rem;">
+      <p class="figure-caption">
         Results on Charades-STA temporal grounding benchmark, showing superior performance compared to specialized models.
       </p>
-      
-      
     </div>
   </div>
 </section>
-<!-- End Experiments Section -->
 
-
-
-<!--BibTeX citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <div class="bibtex-wrapper">
-        <button class="bibtex-copy-btn" onclick="copyBibtex()" title="Copy BibTeX to clipboard">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-          <span id="copyBtnLabel">Copy</span>
-        </button>
-        <pre><code id="bibtex-content">@inproceedings{yao2026timechat,
+<!-- ==================== BIBTEX ==================== -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{yao2026timechatcap,
   title={TimeChat-Captioner: Scripting Multi-Scene Videos with Time-Aware and Structural Audio-Visual Captions},
-  author={Yao, Linli and Wei, Yuancheng and Zhang, Yaojie and Li, Lei and Chen, Xinlong and Song, Feifan and Wang, Ziyue and Ouyang, Kun and Liu, Yuanxin and Kong, Lingpeng and Liu, Qi and Wan, Pengfei and Gai, Kun and Zhang, Yuanxing and Sun, Xu},
-  booktitle={Proceedings of the 43rd International Conference on Machine Learning (ICML)},
+  author={Yao, Linli and Wei, Yuancheng and Zhang, Yaojie and Li, Lei and Chen, Xinlong and Song, Feifan and Wang, Ziyue and Ouyang, Kun and Liu, Yuanxin and Kong, Lingpeng and others},
+  booktitle={Proceedings of the Forty-Third International Conference on Machine Learning},
   year={2026}
 }</code></pre>
-      </div>
-    </div>
-    <script>
-      function copyBibtex() {
-        const text = document.getElementById('bibtex-content').innerText;
-        const label = document.getElementById('copyBtnLabel');
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(() => {
-            const original = label.innerText;
-            label.innerText = 'Copied!';
-            setTimeout(() => { label.innerText = original; }, 1800);
-          }).catch(() => { fallbackCopy(text, label); });
-        } else {
-          fallbackCopy(text, label);
-        }
-      }
-      function fallbackCopy(text, label) {
-        const ta = document.createElement('textarea');
-        ta.value = text; document.body.appendChild(ta); ta.select();
-        try { document.execCommand('copy'); label.innerText = 'Copied!'; }
-        catch (e) { label.innerText = 'Failed'; }
-        setTimeout(() => { label.innerText = 'Copy'; }, 1800);
-        document.body.removeChild(ta);
-      }
-    </script>
+  </div>
 </section>
-<!--End BibTex citation -->
 
-<!-- Acknowledgement section -->
+<!-- ==================== ACKNOWLEDGEMENT ==================== -->
 <section class="section" id="Acknowledgement">
   <div class="container is-max-desktop content">
     <h2 class="title">Acknowledgement</h2>
@@ -847,37 +772,30 @@ We construct two complementary datasets: <strong>OmniDCBench</strong> (1,122 vid
       <strong>Usage and License Notices:</strong> The data, code and checkpoints are intended and licensed for research use only. They are also restricted to uses that follow the license agreements of the respective datasets and models used in this work.
     </p>
     <p>
-      <strong>Related Projects:</strong> 
-      <a href="https://github.com/QwenLM/Qwen2.5-Omni" target="_blank">Qwen2.5-Omni</a>, 
+      <strong>Related Projects:</strong>
+      <a href="https://timechat-online.github.io/" target="_blank">TimeChat-Online</a>,
+      <a href="https://github.com/RenShuhuai-Andy/TimeChat" target="_blank">TimeChat</a>,
+      <a href="https://github.com/QwenLM/Qwen2.5-Omni" target="_blank">Qwen2.5-Omni</a>,
       <a href="https://github.com/google/gemini" target="_blank">Gemini</a>
     </p>
   </div>
 </section>
-<!-- End Acknowledgement section -->
 
-  <footer class="footer">
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
-
           <p>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
-
         </div>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
+</body>
 </html>
