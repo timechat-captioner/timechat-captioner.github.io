@@ -602,22 +602,18 @@ Furthermore, we construct a training dataset, <strong>TimeChatCap-42K</strong>, 
       <h4 class="title is-5 featured-heading">Composite Reward Function</h4>
       <div class="reward-grid">
         <div class="reward-card">
-          <div class="reward-card-tag">R<sub>format</sub></div>
           <div class="reward-card-title">Format Reward</div>
           <p>Binary reward for valid JSON-formatted output (1 if parseable, 0 otherwise).</p>
         </div>
         <div class="reward-card">
-          <div class="reward-card-tag">R<sub>length</sub></div>
           <div class="reward-card-title">Length Reward</div>
           <p>Regularizes output length to prevent hallucinations and repetitive content.</p>
         </div>
         <div class="reward-card">
-          <div class="reward-card-tag">R<sub>time</sub></div>
           <div class="reward-card-title">Timestamp Reward</div>
           <p>Average F1 score at IoU thresholds {0.3, 0.5, 0.7, 0.9} for temporal accuracy.</p>
         </div>
         <div class="reward-card">
-          <div class="reward-card-tag">R<sub>cap</sub></div>
           <div class="reward-card-title">Time-aware Caption Reward</div>
           <p>Uses the SodaM metric to measure semantic completeness and temporal alignment across all six dimensions.</p>
         </div>
