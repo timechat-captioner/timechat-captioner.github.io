@@ -51,6 +51,12 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
+            <div class="conference-badge-wrapper">
+              <span class="conference-badge">
+                <svg class="badge-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"></circle><polyline points="8.21,13.89 7,23 12,20 17,23 15.79,13.88"></polyline></svg>
+                ICML 2026
+              </span>
+            </div>
             <h1 class="title is-1 publication-title">TimeChat-Captioner: Scripting Multi-Scene Videos<br>with Time-Aware and Structural<br>Audio-Visual Captions</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
@@ -567,7 +573,7 @@ We construct two complementary datasets: <strong>OmniDCBench</strong> (1,122 vid
     </ul>
     </div>
     <div style="margin-bottom: 2.5rem;">
-      <img src="static/images/teaser.png" alt="TimeChat-Captioner Task Overview" style="width: 100%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      <img src="static/images/caption_teaser.png" alt="TimeChat-Captioner Task Overview" style="width: 100%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
       <p style="font-size: 0.9rem; color: #95A5B0; text-align: center; margin-top: 0.5rem;">
         TimeChat-Captioner generates temporally-dense and description-dense captions with six structural dimensions.
       </p>
@@ -794,13 +800,42 @@ We construct two complementary datasets: <strong>OmniDCBench</strong> (1,122 vid
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@article{yao2026timechat,
+      <div class="bibtex-wrapper">
+        <button class="bibtex-copy-btn" onclick="copyBibtex()" title="Copy BibTeX to clipboard">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span id="copyBtnLabel">Copy</span>
+        </button>
+        <pre><code id="bibtex-content">@inproceedings{yao2026timechat,
   title={TimeChat-Captioner: Scripting Multi-Scene Videos with Time-Aware and Structural Audio-Visual Captions},
   author={Yao, Linli and Wei, Yuancheng and Zhang, Yaojie and Li, Lei and Chen, Xinlong and Song, Feifan and Wang, Ziyue and Ouyang, Kun and Liu, Yuanxin and Kong, Lingpeng and Liu, Qi and Wan, Pengfei and Gai, Kun and Zhang, Yuanxing and Sun, Xu},
-  journal={arXiv preprint arXiv:2602.08711},
+  booktitle={Proceedings of the 43rd International Conference on Machine Learning (ICML)},
   year={2026}
 }</code></pre>
+      </div>
     </div>
+    <script>
+      function copyBibtex() {
+        const text = document.getElementById('bibtex-content').innerText;
+        const label = document.getElementById('copyBtnLabel');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(() => {
+            const original = label.innerText;
+            label.innerText = 'Copied!';
+            setTimeout(() => { label.innerText = original; }, 1800);
+          }).catch(() => { fallbackCopy(text, label); });
+        } else {
+          fallbackCopy(text, label);
+        }
+      }
+      function fallbackCopy(text, label) {
+        const ta = document.createElement('textarea');
+        ta.value = text; document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); label.innerText = 'Copied!'; }
+        catch (e) { label.innerText = 'Failed'; }
+        setTimeout(() => { label.innerText = 'Copy'; }, 1800);
+        document.body.removeChild(ta);
+      }
+    </script>
 </section>
 <!--End BibTex citation -->
 
